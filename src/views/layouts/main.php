@@ -18,7 +18,7 @@ use devzyj\yii2\adminlte\helpers\AdminLteHelper;
 // 注册资源文件。
 AdminLteAsset::register($this);
 ?>
-<?php $this->beginContent('@devjerry/yii2/adminlte/views/layouts/basic.php'); ?>
+<?php $this->beginContent('@devzyj/yii2/adminlte/views/layouts/basic.php'); ?>
 <body class="hold-transition <?= AdminLteHelper::skinClass() ?> <?= AdminLteHelper::layoutClass() ?>">
 <?php $this->beginBody() ?>
     <div class="wrapper">
