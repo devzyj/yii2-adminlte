@@ -8,11 +8,6 @@ use devzyj\yii2\adminlte\web\AdminLteAsset;
 use devzyj\yii2\adminlte\helpers\AdminLteHelper;
 
 /* @var $this \yii\web\View */
-/* @var $header string|null */
-/* @var $sidebar string|null */
-/* @var $content string|null */
-/* @var $footer string|null */
-/* @var $control string|null */
 /* @var $content string */
 
 // 注册资源文件。
