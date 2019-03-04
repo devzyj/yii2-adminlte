@@ -1,12 +1,14 @@
 <?php
 /* @var $this \yii\web\View */
 
+use yii\helpers\Html;
+
 $assetBaseUrl = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
 ?>
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="<?= Yii::$app->getHomeUrl() ?>" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
@@ -78,6 +80,7 @@ $assetBaseUrl = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/
                         <li class="footer"><a href="#">View all</a></li>
                     </ul>
                 </li>
+                
                 <!-- Tasks Menu -->
                 <li class="dropdown tasks-menu">
                     <!-- Menu Toggle Button -->
@@ -111,6 +114,7 @@ $assetBaseUrl = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/
                         </li>
                     </ul>
                 </li>
+                
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
@@ -145,14 +149,15 @@ $assetBaseUrl = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <?= Html::a('Profile', ['/profile'], ['class' => 'btn btn-default btn-flat']) ?>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <?= Html::a('Sign out', ['/logout'], ['class' => 'btn btn-default btn-flat', 'data-method' => 'post']) ?>
                             </div>
                         </li>
                     </ul>
                 </li>
+                
                 <!-- Control Sidebar Toggle Button -->
                 <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>

@@ -1,6 +1,8 @@
 <?php
 /* @var $this \yii\web\View */
 
+use devzyj\yii2\adminlte\widgets\Menu;
+
 $assetBaseUrl = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
 ?>
 <aside class="main-sidebar">
@@ -32,23 +34,34 @@ $assetBaseUrl = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/
         <!-- /.search form -->
 
         <!-- Sidebar Menu -->
-        <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">HEADER</li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
-                </ul>
-            </li>
-        </ul>
+        <?= Menu::widget([
+            'options' => ['class' => 'sidebar-menu', 'data-widget'=> 'tree'],
+            'items' => [
+                ['label' => 'HEADER', 'options' => ['class' => 'header']],
+                ['label' => 'Link', 'icon' => 'link', 'url' => ['#'], 'active' => true],
+                ['label' => 'Another Link', 'icon' => 'link', 'url' => ['#']],
+                ['label' => 'Multilevel', 'icon' => 'link', 'url' => ['#'], 'items' => [
+                    ['label' => 'Link in level 2', 'url' => ['#']],
+                    ['label' => 'Link in level 2', 'url' => ['#']],
+                ]],
+                
+                ['label' => 'Yii2 Menu', 'options' => ['class' => 'header']],
+                ['label' => 'Home', 'icon' => 'home', 'url' => Yii::$app->homeUrl],
+                ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                ['label' => 'Level One', 'icon' => 'share', 'url' => '#', 'items' => [
+                    ['label' => 'Level Two', 'url' => '#', 'items' => [
+                        ['label' => 'Level Three', 'url' => '#'],
+                        ['label' => 'Level Three', 'url' => '#'],
+                    ]],
+                    ['label' => 'Level Two', 'url' => '#', 'items' => [
+                        ['label' => 'Level Three', 'url' => '#'],
+                        ['label' => 'Level Three', 'url' => '#'],
+                    ]],
+                ]],
+            ],
+        ]) ?>
         <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

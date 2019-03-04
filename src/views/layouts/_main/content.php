@@ -25,7 +25,7 @@ use devzyj\yii2\adminlte\widgets\Alert;
                         echo Html::encode($this->title);
                     } else {
                         echo Inflector::camel2words(Inflector::id2camel($this->context->module->id));
-                        echo ($this->context->module->id !== \Yii::$app->id) ? '<small>Module</small>' : '';
+                        echo ($this->context->module->id !== Yii::$app->id) ? '<small>Module</small>' : '';
                     }
                 ?>
             </h1>

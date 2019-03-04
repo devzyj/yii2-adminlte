@@ -4,7 +4,6 @@
  * @copyright Copyright (c) 2019 Zhang Yan Jiong
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
-use Yii;
 use yii\helpers\Html;
 use yii\web\HttpException;
 
@@ -24,27 +23,27 @@ $this->endBlock();
 $color = $exception instanceof HttpException ? 'text-yellow' : 'text-red';
 ?>
 <div class="error-page">
-    <h2 class="headline text-info"><i class="fa fa-warning <?= $color ?>"></i></h2>
+    <h2 class="headline"><i class="fa fa-warning <?= $color ?>"></i></h2>
     <div class="error-content">
         <h3><?= Html::encode($name) ?></h3>
         <p><?= nl2br(Html::encode($message)) ?></p>
         <p>
             <small>
-                <?= Yii::t('adminlte', 'The above error occurred while the Web server was processing your request.') ?>
-                <?= Yii::t('adminlte', 'Please contact us if you think this is a server error.') ?>
-                <?= Yii::t('adminlte', 'Meanwhile, you may {returnHomePage} or try using the search form.', [
-                        'returnHomePage' => Html::a(Yii::t('adminlte', 'return to home'), Yii::$app->homeUrl),
-                    ])
-                ?>
+                The above error occurred while the Web server was processing your request.
+                Please contact us if you think this is a server error.
+                Meanwhile, you may <?= Html::a('return to home', Yii::$app->getHomeUrl()) ?> or try using the search form.
             </small>
         </p>
-        <form class='search-form'>
-            <div class='input-group'>
-                <input type="text" name="search" class='form-control' placeholder="Search"/>
+        <form class="search-form">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Search">
                 <div class="input-group-btn">
-                    <button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    <button type="submit" name="submit" class="btn btn-warning btn-flat"><i class="fa fa-search"></i></button>
                 </div>
             </div>
+        <!-- /.input-group -->
         </form>
     </div>
+<!-- /.error-content -->
 </div>
+<!-- /.error-page -->
